@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0">
+    <title>meatmelody</title>
+    <link rel="stylesheet" href="/static/css/meatmelody.css"/>
+    <link rel="stylesheet" href="/static/css/pure-min.css"/>
+    <script src="/static/js/vue.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+  <script src="/static/js/meatmelody.js"></script>
+  <script>
+    window.onload = function() {
+      var path = window.location.pathname;
+      var path = path.substr(3, path.length);
+      var melody = new Melody({
+        secure: window.location.protocol === 'https:',
+        host: window.location.host,
+        path: path,
+        WebSocket: window.WebSocket
+      });
+    };
+  </script>
+  </body>
+</html>
